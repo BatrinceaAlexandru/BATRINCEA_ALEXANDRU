@@ -7,6 +7,7 @@ public class Invoice {
     int numberOfProducts;
     double priceOfProduct;
 
+
     public Invoice(String model, String aboutProduct, int numberOfProducts, double priceOfProduct) {
         this.model = model;
         this.aboutProduct = aboutProduct;

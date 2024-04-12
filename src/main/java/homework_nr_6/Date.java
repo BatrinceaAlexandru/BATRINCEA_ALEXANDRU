@@ -17,7 +17,6 @@ private int year;
         return day;
     }
 
-
         public void setDay ( int day) {
 if (day > 0 && day <=31){
     this.day = day;
