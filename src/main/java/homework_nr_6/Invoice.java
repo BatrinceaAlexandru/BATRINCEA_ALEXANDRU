@@ -49,7 +49,7 @@ public class Invoice {
     double finalPrice;
 
      public void getAmount() {
-        if (priceOfProduct >= 0 && numberOfProducts >= 0) {
+        if (priceOfProduct > 0 && numberOfProducts > 0) {
             finalPrice = numberOfProducts * priceOfProduct;
         } else {
             finalPrice = 0;

@@ -8,10 +8,6 @@ private int day ;
 private int month;
 private int year;
 
-String error ="Error";
-
-private String errorDate = "Error";
-
 
     public int getYear() {
         return year;

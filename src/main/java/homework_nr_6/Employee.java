@@ -15,7 +15,7 @@ private String department;
         this.department = department;
     }
 
-    public String getName() {
+    public String getName()
         return name;
     }
 
