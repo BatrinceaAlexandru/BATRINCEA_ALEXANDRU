@@ -48,6 +48,7 @@ public class Employee {
 
     }
 
+
     public static void employeeTest ( List<Employee> inputList, Predicate<Employee> predicate ) {
         for (Employee element :
                 inputList) {
