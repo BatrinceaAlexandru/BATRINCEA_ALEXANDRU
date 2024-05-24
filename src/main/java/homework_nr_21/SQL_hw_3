@@ -1,0 +1,86 @@
+REATE TABLE departments (
+    department_id serial primary key,
+    department_name VARCHAR(50)
+);
+
+CREATE TABLE employees (
+    employee_id serial primary key,
+    employee_name VARCHAR(50),
+    department_id int,
+    FOREIGN KEY (department_id)
+    REFERENCES departments(department_id)
+);
+
+CREATE TABLE projects (
+    project_id serial primary key,
+    project_name VARCHAR(50)
+);
+
+CREATE TABLE employee_projects (
+    employee_id int,
+    project_id int,
+    FOREIGN KEY (employee_id)
+    REFERENCES employees(employee_id),
+    FOREIGN KEY (project_id)
+    REFERENCES projects(project_id)
+);
+
+insert into departments (department_name)
+values
+( 'Accounting'),
+('Finance'),
+('Human Resources');
+
+select * from departments;
+
+insert into employees (employee_name, department_id)
+values
+('Alex', 1),
+('Oleg', 2),
+('Elena', 3),
+('Diana', 2),
+('Alexei', 1),
+('Ana', Null);
+
+select * from employees;
+
+insert into projects (project_name)
+values
+('Tax closure'),
+('Month report'),
+('Team building');
+
+select * from projects;
+
+insert into employee_projects (employee_id , project_id)
+ values
+(1, 2),
+(2, 1),
+(3, 3),
+(4, 1);
+
+select * from employee_projects;
+
+select e.employee_name, d.department_name
+from employees e
+inner join departments d on e.department_id = d.department_id;
+
+select employee_name
+from employees
+where department_id is Null;
+
+
+select e.employee_name, p.project_name
+from employees e
+inner join employee_projects ep on e.employee_id = ep.employee_id
+inner join projects p on p.project_id = ep.project_id
+
+
+select e.employee_name, d.department_name
+from employees e
+full join departments d on e.department_id = d.department_id;
+
+select d.department_name, count(e.employee_id) as employee_count
+from departments d
+left join employees e on d.department_id = e.department_id
+group by d.department_id, d.department_name;
