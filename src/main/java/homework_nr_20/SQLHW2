@@ -1,0 +1,38 @@
+
+create table leased_books(
+leased_books_id serial primary key,
+names text not Null ,
+surname text not Null,
+date_of_lease date not Null,
+date_of_return date,
+fk_book_id int,
+constraint fk_book
+foreign key(fk_book_id)
+references Books(book_id)
+);
+
+insert into leased_books(names,surname,date_of_lease,fk_book_id)
+values('Alexei','Ivanov','19-01-2024',1);
+insert into leased_books(names,surname,date_of_lease,fk_book_id)
+values('Andreevna','Timosenco','25-01-2024',3);
+insert into leased_books(names,surname,date_of_lease,date_of_return,fk_book_id)
+values('Olga','Armas','15-01-2024','20-01-2024',4);
+insert into leased_books(names,surname,date_of_lease,date_of_return,fk_book_id)
+values('Andremevna','Nicoara','25-01-2024','26-01-2024',3);
+
+select name from Books b
+left join leased_books lb on b.book_id=lb.fk_book_id
+where fk_book_id is null;
+
+select * from leased_books;
+
+select names,surname,date_of_return from leased_books
+where names is not null
+and surname is not null
+and date_of_return is not null;
+
+select names,surname,date_of_return from leased_books
+where names like 'A_%e_e%_'
+and names is not null
+and surname is not null
+and date_of_return is not null;
