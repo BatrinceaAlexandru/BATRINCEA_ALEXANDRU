@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+import static java.util.stream.Collectors.toList;
+
 public class HomeWorkNr11 {
     public static void main ( String[] args ) {
 
@@ -13,8 +15,8 @@ public class HomeWorkNr11 {
 
         System.out.println( "The persons which name starts with letter A and is less than 5 characters " );
         List<Person> nameStartsWithLetterA = personList.stream()
-                .filter( e -> e.name.startsWith( "A" ) )
-                .limit( 5 )
+                .filter(e -> e.name.startsWith( "A" ) )
+                .filter( e -> e.name.length() < 5  )
                 .toList();
         nameStartsWithLetterA.forEach( e -> System.out.println( e.name ) );
 
