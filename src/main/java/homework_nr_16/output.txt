@@ -1,0 +1,3 @@
+Average score: 84.3
+The youngest man: Bob (age: 22)
+The oldest man: Eve (age: 30)
